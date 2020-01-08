@@ -44,6 +44,7 @@
     - git
     - gdisk
     - parted
+    - exfat-fuse
     - wpasupplicant
 
 - name: Generate locales
