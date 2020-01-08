@@ -24,7 +24,7 @@ fi
 # Install prerequisites packages
 printf "\e[32mInstall the dependencies...  "
 apt-get update > /dev/null
-apt-get install --no-install-recommends -y qemu-user-static debootstrap coreutils parted wget gdisk e2fsprogs > /dev/null
+apt-get install --no-install-recommends -y qemu-user-static debootstrap coreutils parted wget gdisk e2fsprogs ansible python-pip libffi-dev libssl-dev lbzip2 > /dev/null
 printf "[OK]\n"
 
 # Create rootfs directory
@@ -59,6 +59,11 @@ cp /usr/bin/qemu-aarch64-static $JETSON_ROOTFS_DIR/usr/bin
 # Run debootstrap second stage
 printf "Run debootstrap second stage... "
 chroot $JETSON_ROOTFS_DIR /bin/bash -c "/debootstrap/debootstrap --second-stage"  > /dev/null
+printf "[OK]\n"
+
+# Copy /etc/resolv.conf
+printf "Copy /etc/resolv.conf "
+cp /etc/resolv.conf $JETSON_ROOTFS_DIR/etc
 printf "[OK]\n"
 
 printf "Success!\n"
