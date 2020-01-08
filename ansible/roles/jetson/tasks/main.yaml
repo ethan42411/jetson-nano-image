@@ -40,6 +40,8 @@
     - unzip
     - usbutils
     - vim
+    - nano
+    - git
     - wpasupplicant
 
 - name: Generate locales
