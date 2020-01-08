@@ -42,6 +42,8 @@
     - vim
     - nano
     - git
+    - gdisk
+    - parted
     - wpasupplicant
 
 - name: Generate locales
